@@ -24,9 +24,6 @@ COPY icecast/icecast.xml /etc/icecast2/icecast.xml
 #Copy ezstream configuration
 COPY ezstream/ezstream_mp3.xml /home
 
-#Copy music folder
-COPY music /home/music
-
 #Copy selector script
 COPY selector.sh /home
 
