@@ -34,13 +34,13 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y npm
 
 # Create info dir
-RUN mkdir /home/info
+RUN mkdir /home/web
 
 #Copy info service code
-COPY info/* /home/info/
+COPY web/ /home/web/
 
 #Install npm dependecies for infor service
-RUN cd /home/info && npm install
+RUN cd /home/web && npm install
 
 #Enable init.d
 COPY icecast/icecast2 /etc/default/icecast2
@@ -49,8 +49,8 @@ COPY icecast/icecast2 /etc/default/icecast2
 EXPOSE 8000
 
 #Expose info port
-EXPOSE 3000
+EXPOSE 80
 
 #Start icecast2, wait until is ready, run ezstream and info service, then run a bash console
-ENTRYPOINT service icecast2 restart && ezstream -c /home/ezstream_mp3.xml & node /home/info/index.js & /bin/bash
+ENTRYPOINT service icecast2 restart && ezstream -c /home/ezstream_mp3.xml & node /home/web/index.js & /bin/bash
 
