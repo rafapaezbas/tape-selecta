@@ -51,6 +51,6 @@ EXPOSE 8000
 #Expose info port
 EXPOSE 3000
 
-#Start icecast2, wait unit is ready, run ezstream and info service, then run a bash console
+#Start icecast2, wait until is ready, run ezstream and info service, then run a bash console
 ENTRYPOINT service icecast2 restart && ezstream -c /home/ezstream_mp3.xml & node /home/info/index.js & /bin/bash
 
