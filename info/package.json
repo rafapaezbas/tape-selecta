@@ -1,0 +1,14 @@
+{
+  "name": "tape-selecta-status",
+  "version": "1.0.0",
+  "description": "Rest service for tape-selecta rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "rpaezbas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
