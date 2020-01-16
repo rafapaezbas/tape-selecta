@@ -19,10 +19,10 @@ RUN apt-get install -y mp3info
 RUN apt-get install -y ezstream
 
 #Copy icecast configuration
-COPY icecast/icecast.xml /etc/icecast2/icecast.xml
+COPY icecast-config/icecast.xml /etc/icecast2/icecast.xml
 
 #Copy ezstream configuration
-COPY ezstream/ezstream_mp3.xml /home
+COPY ezstream-config/ezstream_mp3.xml /home
 
 #Copy selector script
 COPY selector.sh /home
@@ -43,7 +43,7 @@ COPY web/ /home/web/
 RUN cd /home/web && npm install
 
 #Enable init.d
-COPY icecast/icecast2 /etc/default/icecast2
+COPY icecast-config/icecast2 /etc/default/icecast2
 
 #Expose icecast port
 EXPOSE 8000
